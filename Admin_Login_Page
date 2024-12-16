@@ -1,0 +1,11 @@
+
+<%
+String username = request.getParameter("username");
+String password = request.getParameter("password");
+if("Lubuna".equals(username)&&"Lubuna@1234".equals(password)){
+    response.sendRedirect(home.jsp);                                                        <!--  class name -->
+}
+else{
+    response.sendRedirect("adminLogin.jsp?msg=invalid");
+}
+%>
