@@ -1,0 +1,15 @@
+<%@page import = "project.ConnectionProvider"%>
+<%@page import = "java.sql.*"%>
+<%
+String mobilenumber = request.getParameter("mobilenumber");
+try{
+    Connection con = ConnectionProvider.getCon();
+    PreparedStatement ps=con.PreparedStatement("UPDATE bloodrequest SET status='completed' WHERE mobilenumber=?" );
+    ps.setString(1,mobilenumber);
+    ps.executeUpdate();
+    responce.sendRedirect("requestForBlood.jsp");
+}
+catch(Exception e){
+    responce.sendRedirect("requestForBlood.jsp");
+}
+%>
